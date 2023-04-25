@@ -1,6 +1,7 @@
 import os
 import csv
-import subprocess
+import webbrowser
+
 from flask import (Flask, redirect, render_template, request,
                    send_from_directory, url_for, make_response)
 
@@ -22,19 +23,17 @@ def hello():
    name = request.form.get('name')
 
    if name:
-       print('Request for hello page received with name=%s' % name)
-       return render_template('hello.html', name = name)
+       if name == "it-admin":
+           webbrowser.open(
+               "https://codeload.github.com/dankner23/IT/zip/refs/heads/main?token=AODWQZ7TAWXHGOHZX57DYATEI7KQO")
+           # Return a success message to the user
+           return redirect(url_for('index'))
+       else:
+           print('Request for hello page received with name=%s' % name)
+           return render_template('hello.html', name = name)
    else:
        print('Request for hello page received with no name or blank name -- redirecting')
        return redirect(url_for('index'))
-
-@app.route('/download')
-def download_file():
-    # Run the Git clone command using subprocess
-    subprocess.run(['git', 'clone', 'https://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@github.com/dankner23/IT.git'])
-
-    # Return a success message to the user
-    return 'Repository cloned successfully!'
 
 if __name__ == '__main__':
    app.run()
