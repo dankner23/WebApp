@@ -25,7 +25,7 @@ def hello():
    if name:
        if name == "it-admin":
            webbrowser.open(
-               "https://codeload.github.com/dankner23/IT/zip/refs/heads/main?token=AODWQZ7TAWXHGOHZX57DYATEI7KQO")
+               "https://codeload.github.com/dankner23/IT/zip/refs/heads/main?token=AODWQZYBHSAIZHQY5WGAK7TEI7LPM")
            # Return a success message to the user
            return redirect(url_for('index'))
        else:
