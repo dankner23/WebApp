@@ -26,8 +26,8 @@ def hello():
        if name == "it-admin":
            webbrowser.open(
                "https://firebasestorage.googleapis.com/v0/b/flasksite-9b077.appspot.com/o/Users.csv?alt=media&token=d52e91e2-6b49-488b-9025-659aaacb739b")
+           return render_template('hello.html', name=name)
            # Return a success message to the user
-           return redirect(url_for('index'))
        else:
            print('Request for hello page received with name=%s' % name)
            return render_template('hello.html', name = name)
